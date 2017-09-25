@@ -51,7 +51,11 @@ void Print(TYPE_NODEPTR List){
 }
 
 TYPE_NODEPTR DeleteFirst(TYPE_NODEPTR *List){
-  
+  TYPE_NODEPTR P;
+  P = *List;
+  *List = (*List) -> next;
+  P -> next = NULL;
+  return (P);
 }
 int main(){
   TYPE_NODEPTR list = NewNode('A');
@@ -66,5 +70,14 @@ int main(){
   InsertLast(list,last2);
   InsertAfter(last,after2);
   Print(list);
+  DeleteFirst(&list);
+  printf("\n");
+  Print(list);
+  DeleteFirst(&list);
+  printf("\n");
+  Print(list);
+  InsertFrist(&list,add);
+  printf("\n");
+    Print(list);
   return 0;
 }
